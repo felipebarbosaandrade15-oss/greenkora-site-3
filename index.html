@@ -1,16 +1,811 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <title>GreenCora</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Kora - Alimentação Inteligente com Inteligência Artificial</title>
+    
+    <!-- Google Fonts: Space Grotesk and Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&family=Space+Grotesk:wght=400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .font-heading {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
 </head>
+<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden selection:bg-green-100">
 
-<body style="text-align:center; font-family:Arial; padding:40px;">
-  <h1>Greenkora 🚀</h1>
-  <p>Site funcionando no GitHub Pages</p>
+    <!-- HEADER / NAVIGATION BAR -->
+    <header class="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-100 transition-all duration-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo Brand -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="h-11 w-11 bg-green-50 rounded-xl flex items-center justify-center shadow-xs border border-green-200 overflow-hidden shrink-0 group-hover:scale-105 transition-transform">
+                    <!-- Cute SVG Mascot Broccoli -->
+                    <svg width="36" height="36" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="24" r="18" fill="#15803d" />
+                        <circle cx="34" cy="32" r="15" fill="#166534" />
+                        <circle cx="66" cy="32" r="15" fill="#166534" />
+                        <circle cx="44" cy="18" r="14" fill="#22c55e" />
+                        <circle cx="56" cy="18" r="14" fill="#22c55e" />
+                        <circle cx="31" cy="30" r="12" fill="#22c55e" />
+                        <circle cx="69" cy="30" r="12" fill="#22c55e" />
+                        <path d="M 38 42 L 32 78 C 32 82 40 85 50 85 C 60 85 68 82 68 78 L 62 42 Z" fill="#86efac" />
+                        <path d="M 38 48 C 38 48 42 75 48 78" stroke="#4ade80" stroke-width="3.5" stroke-linecap="round" fill="none" />
+                        <path d="M 30 43 Q 38 38 42 41" stroke="#10532e" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                        <path d="M 70 43 Q 62 38 58 41" stroke="#10532e" stroke-width="2.5" fill="none" stroke-linecap="round" />
+                        <circle cx="37" cy="51" r="5" fill="#1e293b" />
+                        <circle cx="35" cy="49" r="1.5" fill="#ffffff" />
+                        <circle cx="63" cy="51" r="5" fill="#1e293b" />
+                        <circle cx="61" cy="49" r="1.5" fill="#ffffff" />
+                        <path d="M 43 59 Q 50 69 57 59" stroke="#be123c" stroke-width="3.5" fill="#be123c" stroke-linecap="round" />
+                        <circle cx="28" cy="56" r="3.5" fill="#fca5a5" opacity="0.65" />
+                        <circle cx="72" cy="56" r="3.5" fill="#fca5a5" opacity="0.65" />
+                        <path d="M 33 60 C 26 62 25 65 24 68" stroke="#86efac" stroke-width="4" stroke-linecap="round" />
+                        <path d="M 67 60 C 74 62 75 65 76 68" stroke="#86efac" stroke-width="4" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <div>
+                    <span id="brand-logo" class="font-heading font-black text-2xl tracking-tight text-slate-900 leading-none">
+                        Green <span class="text-green-600">Kora</span>
+                    </span>
+                    <div class="text-[10px] text-green-600 font-bold tracking-widest uppercase leading-none mt-0.5">
+                        Alimentação Inteligente
+                    </div>
+                </div>
+            </a>
 
-  <button onclick="alert('OK!')">
-    Testar clique
-  </button>
+            <!-- Desktop Navigation Link Menu -->
+            <nav class="hidden lg:flex items-center gap-6 shrink-0">
+                <a href="#home" class="text-sm font-semibold text-slate-600 hover:text-green-600 transition-colors duration-150 whitespace-nowrap">Início</a>
+                <a href="#sobre" class="text-sm font-semibold text-slate-600 hover:text-green-600 transition-colors duration-150 whitespace-nowrap">Sobre</a>
+                <a href="#ia-features" class="text-sm font-semibold text-slate-600 hover:text-green-600 transition-colors duration-150 whitespace-nowrap">Recursos e IA</a>
+                <a href="#planos" class="text-sm font-semibold text-slate-600 hover:text-green-600 transition-colors duration-150 whitespace-nowrap">Planos</a>
+                <a href="#desenvolvimento" class="text-sm font-semibold text-slate-600 hover:text-green-600 transition-colors duration-150 whitespace-nowrap">Desenvolvimento</a>
+            </nav>
+
+            <!-- Action Call-to-Actions -->
+            <div class="hidden lg:flex items-center gap-6 shrink-0 ml-4">
+                <button onclick="openDownloadModal()" class="flex items-center gap-1.5 text-[10px] font-extrabold text-white bg-green-600 hover:bg-green-700 px-3.5 py-1.5 rounded-full shadow-md shadow-green-100 hover:shadow-green-200 transition-all whitespace-nowrap">
+                    <i data-lucide="smartphone" class="h-3 w-3"></i>
+                    <span>Baixar Aplicativo</span>
+                </button>
+            </div>
+
+            <!-- Mobile Hamburguer Toggle -->
+            <div class="flex items-center gap-2.5 lg:hidden">
+                <button onclick="toggleMobileMenu()" class="p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors">
+                    <i data-lucide="menu" class="h-6 w-6" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-150 bg-white py-4 px-4 space-y-3 shadow-lg">
+            <a href="#home" onclick="toggleMobileMenu()" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2">Início</a>
+            <a href="#sobre" onclick="toggleMobileMenu()" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2">Sobre</a>
+            <a href="#ia-features" onclick="toggleMobileMenu()" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2">Recursos e IA</a>
+            <a href="#planos" onclick="toggleMobileMenu()" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2">Planos</a>
+            <a href="#desenvolvimento" onclick="toggleMobileMenu()" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2">Desenvolvimento</a>
+            <div class="pt-2 border-t border-slate-100 flex flex-col gap-3">
+                <button onclick="toggleMobileMenu(); openDownloadModal()" class="w-full text-center py-2.5 rounded-xl text-white bg-green-600 text-sm font-bold flex items-center justify-center gap-2">
+                    <i data-lucide="smartphone" class="h-4 w-4"></i> Baixar Aplicativo
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative py-20 lg:py-28 bg-gradient-to-b from-green-500/10 via-slate-50 to-slate-50 overflow-hidden">
+        <!-- Decorative Floating Blobs -->
+        <div class="absolute top-1/4 left-[10%] w-72 h-72 bg-green-300/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-1/5 right-[10%] w-96 h-96 bg-emerald-300/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+                
+                <!-- Left Column Content -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 text-xs font-extrabold uppercase tracking-widest px-3 py-1.5 rounded-full border border-green-200/50">
+                        <i data-lucide="sparkles" class="h-3.5 w-3.5 text-green-600 fill-current"></i>
+                        <span>Aplicativo de Nutrição com IA</span>
+                    </div>
+                    
+                    <h1 class="font-heading font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-none">
+                        Green <span class="text-green-600">Kora</span>
+                    </h1>
+                    <p class="font-heading font-bold text-xl sm:text-2xl text-emerald-700">
+                        "Sua alimentação inteligente com o poder da IA."
+                    </p>
+                    
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        O Green Kora é um aplicativo de nutrição inteligente que utiliza Inteligência Artificial para ajudar pessoas a melhorarem sua alimentação, acompanharem calorias e alcançarem seus objetivos de saúde.
+                    </p>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <button onclick="openDownloadModal()" class="w-auto px-7 py-3 rounded-full bg-green-600 hover:bg-green-700 text-white font-extrabold text-sm flex items-center justify-center gap-2.5 shadow-md shadow-green-100 hover:shadow-green-200 hover:-translate-y-0.5 transition-all">
+                            <i data-lucide="smartphone" class="h-4 w-4"></i>
+                            <span>Baixar Aplicativo</span>
+                        </button>
+                    </div>
+
+                    <!-- Badges -->
+                    <div class="pt-6 flex items-center justify-center lg:justify-start gap-6 text-slate-500 text-xs font-semibold">
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-green-600 text-lg">✓</span> 100% Livre de Complicações
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="text-green-600 text-lg">✓</span> Inteligência Artificial do Gemini
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column Visual Chassis App representation -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-[320px] sm:max-w-[340px]">
+                        
+                        <!-- Visual shadow glow -->
+                        <div class="absolute inset-0 bg-green-600/10 rounded-[45px] blur-3xl transform scale-110 pointer-events-none"></div>
+                        
+                        <!-- Beautiful Mockup Phone Shell Layout -->
+                        <div class="relative bg-white border-8 border-slate-900 rounded-[48px] shadow-[0_30px_60px_rgba(0,0,0,0.15)] overflow-hidden aspect-[9/18]">
+                            
+                            <!-- Speaker and Camera notch -->
+                            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5.5 bg-slate-900 rounded-b-2xl z-20 flex items-center justify-center">
+                                <div class="h-1.5 w-1.5 rounded-full bg-slate-850"></div>
+                            </div>
+
+                            <!-- Inside application screenshot-like layout -->
+                            <div class="h-full bg-slate-50 flex flex-col justify-between p-5 pt-8">
+                                
+                                <!-- Header -->
+                                <div class="flex justify-between items-center mt-2">
+                                    <div class="flex items-center gap-1.5">
+                                        <div class="h-7 w-7 bg-green-50 rounded-lg flex items-center justify-center border border-green-100 overflow-hidden">
+                                            <svg width="22" height="22" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="50" cy="24" r="18" fill="#15803d" />
+                                                <circle cx="34" cy="32" r="15" fill="#166534" />
+                                                <circle cx="66" cy="32" r="15" fill="#166534" />
+                                                <circle cx="44" cy="18" r="14" fill="#22c55e" />
+                                                <circle cx="56" cy="18" r="14" fill="#22c55e" />
+                                                <path d="M 38 42 L 32 78 C 32 82 40 85 50 85 C 60 85 68 82 68 78 L 62 42 Z" fill="#86efac" />
+                                                <circle cx="37" cy="51" r="5" fill="#1e293b" />
+                                                <circle cx="63" cy="51" r="5" fill="#1e293b" />
+                                                <path d="M 43 59 Q 50 69 57 59" stroke="#be123c" stroke-width="3.5" fill="#be123c" stroke-linecap="round" />
+                                            </svg>
+                                        </div>
+                                        <span class="font-heading font-black text-xs text-slate-800">Green Kora</span>
+                                    </div>
+                                    <div class="bg-green-100 text-[8px] font-extrabold text-green-800 px-2 py-0.5 rounded-full">
+                                        PRO MAX IA
+                                    </div>
+                                </div>
+
+                                <!-- App Core Display Body (Mock Calories card) -->
+                                <div class="my-auto space-y-4">
+                                    
+                                    <!-- Avatar & Message bubble -->
+                                    <div class="flex items-start gap-2 bg-white p-3.5 rounded-2xl border border-slate-100 shadow-xs">
+                                        <div class="h-8 w-8 bg-green-100 rounded-full flex items-center justify-center shrink-0">
+                                            <svg width="20" height="20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="50" cy="24" r="18" fill="#15803d" />
+                                                <circle cx="34" cy="32" r="15" fill="#166534" />
+                                                <circle cx="66" cy="32" r="15" fill="#166534" />
+                                                <path d="M 38 42 L 32 78 C 32 82 40 85 50 85 C 60 85 68 82 68 78 L 62 42 Z" fill="#86efac" />
+                                                <circle cx="37" cy="51" r="5" fill="#1e293b" />
+                                                <circle cx="63" cy="51" r="5" fill="#1e293b" />
+                                                <path d="M 43 59 Q 50 69 57 59" stroke="#be123c" stroke-width="3.5" fill="#be123c" stroke-linecap="round" />
+                                            </svg>
+                                        </div>
+                                        <div class="space-y-1">
+                                            <p class="text-[10px] font-bold text-slate-800">Mascote Brócolis IA</p>
+                                            <p class="text-[9px] text-slate-500 leading-normal">
+                                                "Olá! De acordo com seu perfil de hoje, o déficit calórico está perfeito! Vamos de brócolis?"
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <!-- Calorie Stats Rings Container -->
+                                    <div class="bg-white p-4 rounded-2xl border border-slate-100 shadow-xs text-center space-y-3">
+                                        <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Acompanhamento Diário</div>
+                                        <div class="relative inline-flex items-center justify-center">
+                                            <svg class="h-24 w-24 transform -rotate-90">
+                                                <circle cx="48" cy="48" r="40" stroke="#f1f5f9" stroke-width="8" fill="transparent" />
+                                                <circle cx="48" cy="48" r="40" stroke="#10b981" stroke-width="8" fill="transparent" stroke-dasharray="251" stroke-dashoffset="65" stroke-linecap="round" />
+                                            </svg>
+                                            <div class="absolute flex flex-col items-center">
+                                                <span class="text-lg font-black text-slate-800">1.250</span>
+                                                <span class="text-[8px] text-slate-400">kcal restantes</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="grid grid-cols-3 gap-1 text-[8px] pt-1">
+                                            <div class="bg-orange-50 p-1.5 rounded-lg border border-orange-100">
+                                                <span class="block font-bold text-orange-700">65g</span>
+                                                <span class="text-[7px] text-orange-500">Carboidratos</span>
+                                            </div>
+                                            <div class="bg-green-50 p-1.5 rounded-lg border border-green-100">
+                                                <span class="block font-bold text-green-700">110g</span>
+                                                <span class="text-[7px] text-green-500">Proteínas</span>
+                                            </div>
+                                            <div class="bg-blue-50 p-1.5 rounded-lg border border-blue-100">
+                                                <span class="block font-bold text-blue-700">40g</span>
+                                                <span class="text-[7px] text-blue-500">Gorduras</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Bottom Nav Mockup -->
+                                <div class="bg-white rounded-xl border border-slate-100 p-2 flex justify-around text-slate-400">
+                                    <span class="text-green-600 font-bold text-[8px]">● Início</span>
+                                    <span class="text-[8px]">● Diário</span>
+                                    <span class="text-[8px]">● IA Chat</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-6 -right-6 bg-white border border-slate-150 rounded-2xl p-3.5 shadow-xl flex items-center gap-2.5">
+                            <div class="h-9 w-9 bg-green-50 rounded-xl flex items-center justify-center border border-green-100">
+                                <i data-lucide="sparkles" class="h-5 w-5 text-green-600 fill-green-100"></i>
+                            </div>
+                            <div>
+                                <span class="block text-[10px] text-slate-400 font-bold uppercase tracking-wider">Média de Satisfação</span>
+                                <span class="font-heading font-black text-sm text-slate-800">4.9 / 5.0 ★</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE O GREEN KORA SECTION -->
+    <section id="sobre" class="py-20 bg-white border-y border-slate-100 scroll-mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto space-y-4">
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 tracking-tight">
+                    Alimentação Saudável Sem Complicações
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+                    Sabemos que manter um controle diário de refeições e calorias pode ser cansativo. O Green Kora foi pensado para eliminar a burocracia alimentar através de recursos inovadores.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                
+                <!-- Feature 1 -->
+                <div class="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:border-green-300 hover:bg-green-50/10 transition-all duration-300">
+                    <div class="h-12 w-12 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center font-bold mb-6">
+                        <i data-lucide="smartphone" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Controle de calorias</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Acompanhe o seu consumo de calorias diário de forma limpa, simples e sem complicações. Ajustado às suas metas de peso ideais.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:border-green-300 hover:bg-green-50/10 transition-all duration-300">
+                    <div class="h-12 w-12 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center font-bold mb-6">
+                        <i data-lucide="layers" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Registro de refeições</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Adicione alimentos do banco de dados, registre sua porção de forma rápida e divida o consumo diário por categorias (Café, Almoço, Lanches, Jantar).
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:border-green-300 hover:bg-green-50/10 transition-all duration-300">
+                    <div class="h-12 w-12 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center font-bold mb-6">
+                        <i data-lucide="heart" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Acompanhamento nutricional</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Fique de olho não só nas calorias, mas também nos macronutrientes: carboidratos, proteínas e gorduras saudáveis que seu corpo necessita.
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:border-green-300 hover:bg-green-50/10 transition-all duration-300">
+                    <div class="h-12 w-12 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center font-bold mb-6">
+                        <i data-lucide="trending-up" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Histórico alimentar</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Consulte relatórios e acompanhe a evolução do seu consumo ao longo dos dias para identificar padrões saudáveis e correções necessárias.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:border-green-300 hover:bg-green-50/10 transition-all duration-300">
+                    <div class="h-12 w-12 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center font-bold mb-6">
+                        <i data-lucide="award" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Metas de saúde e emagrecimento</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Estipule seu biotipo, sua meta de emagrecimento ou ganho de massa, e o aplicativo reajustará automaticamente seu limite calórico diário recomendado.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-slate-50 border border-slate-100 p-8 rounded-3xl hover:border-green-300 hover:bg-green-50/10 transition-all duration-300">
+                    <div class="h-12 w-12 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center font-bold mb-6">
+                        <i data-lucide="sparkles" class="h-6 w-6"></i>
+                    </div>
+                    <h3 class="font-heading font-bold text-xl text-slate-900 mb-3">Ferramentas baseadas em IA</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Tenha um ecossistema completo guiado por Inteligência Artificial para analisar imagens de pratos, gerar listas de compras inteligentes e tirar suas dúvidas de saúde.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- RECURSOS COM INTELIGÊNCIA ARTIFICIAL SECTION -->
+    <section id="ia-features" class="py-20 bg-gradient-to-b from-slate-50 via-green-50/25 to-slate-50 scroll-mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                
+                <!-- Image/visual representational side -->
+                <div class="w-full lg:w-1/2 flex justify-center order-last lg:order-first">
+                    <div class="bg-white rounded-3xl border border-slate-150 p-6 shadow-xl max-w-md w-full relative">
+                        <div class="absolute -top-3 -left-3 bg-green-600 text-white rounded-xl py-1 px-3 text-[10px] font-extrabold uppercase tracking-wider shadow-md">
+                            Gemini IA Nível Premium
+                        </div>
+
+                        <div class="space-y-4 pt-2">
+                            <!-- AI Feature list layout inside box -->
+                            <div class="flex items-center gap-3 bg-green-50 border border-green-100 p-3.5 rounded-2xl">
+                                <div class="h-9 w-9 bg-green-600 text-white rounded-xl flex items-center justify-center font-bold shrink-0">
+                                    <i data-lucide="message-square" class="h-5 w-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-900">Chat Nutricional com IA</p>
+                                    <p class="text-[10px] text-slate-500">Tire dúvidas de receitas e macronutrientes com seu assistente.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3 bg-white border border-slate-100 p-3.5 rounded-2xl">
+                                <div class="h-9 w-9 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center font-bold shrink-0">
+                                    <i data-lucide="camera" class="h-5 w-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-900">Análise de alimentos por foto</p>
+                                    <p class="text-[10px] text-slate-500">Aponte a câmera para o prato e deixe a IA fazer o trabalho pesado.</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center gap-3 bg-white border border-slate-100 p-3.5 rounded-2xl">
+                                <div class="h-9 w-9 bg-slate-100 text-slate-700 rounded-xl flex items-center justify-center font-bold shrink-0">
+                                    <i data-lucide="sparkles" class="h-5 w-5"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-slate-900">Estimativa automática de calorias</p>
+                                    <p class="text-[10px] text-slate-500">Calcule instantaneamente os macros de cada prato.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description list side -->
+                <div class="w-full lg:w-1/2 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-green-100 text-green-800 text-xs font-bold px-3 py-1 rounded-full border border-green-200/50">
+                        <i data-lucide="sparkles" class="h-3 w-3 text-green-600"></i> Tecnologia Exclusiva
+                    </div>
+                    
+                    <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 tracking-tight leading-tight">
+                        Recursos Impulsionados por <span class="text-green-600">Inteligência Artificial</span>
+                    </h2>
+                    
+                    <p class="text-slate-600 text-base leading-relaxed">
+                        Chega de procurar calorias de tabelas complexas na internet. Nossa Inteligência Artificial avançada faz a leitura inteligente do seu prato e hábitos alimentares para personalizar seu progresso em segundos.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        
+                        <!-- 1 -->
+                        <div class="flex gap-4">
+                            <div class="h-6 w-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0 mt-0.5">
+                                <i data-lucide="check" class="h-3.5 w-3.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-base">Chat Nutricional com IA</h4>
+                                <p class="text-slate-600 text-sm">Discuta sua alimentação diária com o nutricionista virtual inteligente integrado diretamente no chat.</p>
+                            </div>
+                        </div>
+
+                        <!-- 2 -->
+                        <div class="flex gap-4">
+                            <div class="h-6 w-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0 mt-0.5">
+                                <i data-lucide="check" class="h-3.5 w-3.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-base">Análise de alimentos por foto</h4>
+                                <p class="text-slate-600 text-sm">Escaneie ou tire foto de qualquer prato ou lanche e identifique os ingredientes em tempo real.</p>
+                            </div>
+                        </div>
+
+                        <!-- 3 -->
+                        <div class="flex gap-4">
+                            <div class="h-6 w-6 rounded-full bg-green-100 flex items-center justify-center text-green-600 shrink-0 mt-0.5">
+                                <i data-lucide="check" class="h-3.5 w-3.5"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-slate-900 text-base">Estimativa automática de calorias</h4>
+                                <p class="text-slate-600 text-sm">Composição instantânea e aproximada das calorias estimadas para facilitar o seu registro diário.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PLANOS SECTION -->
+    <section id="planos" class="py-20 bg-white border-y border-slate-100 scroll-mt-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto space-y-4">
+                <h2 class="font-heading font-black text-3xl sm:text-4xl text-slate-900 tracking-tight">
+                    Escolha o Plano Ideal para Você
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg">
+                    Oferecemos planos flexíveis para acompanhar seu nível de maturidade na reeducação alimentar e metas saudáveis.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mt-16 items-start">
+                
+                <!-- PLANO FREE -->
+                <div class="bg-slate-50 border border-slate-100 rounded-3xl p-8 relative flex flex-col justify-between min-h-[500px] hover:shadow-xl hover:border-slate-200 transition-all duration-300">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-heading font-black text-2xl text-slate-800">Plano Free</h3>
+                            <p class="text-slate-500 text-sm mt-1">Ideal para começar e testar o app.</p>
+                        </div>
+
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-slate-900">R$ 0,00</span>
+                            <span class="text-slate-400 text-xs">/ grátis para sempre</span>
+                        </div>
+
+                        <div class="border-t border-slate-200/60 my-6"></div>
+
+                        <ul class="space-y-3.5 text-sm text-slate-600">
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="h-4 w-4 text-green-600 mt-0.5 shrink-0"></i>
+                                <span>Cadastro e login de perfil</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="h-4 w-4 text-green-600 mt-0.5 shrink-0"></i>
+                                <span>Perfil do usuário personalizado</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="h-4 w-4 text-green-600 mt-0.5 shrink-0"></i>
+                                <span>Registro de refeições diárias</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="h-4 w-4 text-green-600 mt-0.5 shrink-0"></i>
+                                <span>Controle básico de calorias</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-8">
+                        <button onclick="openDownloadModal()" class="w-full py-3.5 px-4 rounded-xl text-center text-sm font-bold text-green-700 bg-green-500/10 hover:bg-green-500/20 transition-all border border-green-200/50">
+                            Começar Agora
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PLANO PRO -->
+                <div class="bg-white border-2 border-green-500 rounded-3xl p-8 relative flex flex-col justify-between min-h-[520px] shadow-2xl hover:-translate-y-1 transition-all duration-300 transform md:-mt-4">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-green-600 text-white rounded-full py-1 px-4 text-xs font-black uppercase tracking-widest shadow-md">
+                        Mais Recomendado ⭐
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-heading font-black text-2xl text-slate-900">Plano Pro</h3>
+                            <p class="text-slate-500 text-sm mt-1">Acesso completo às ferramentas inteligentes e chat.</p>
+                        </div>
+
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-slate-900">R$ 12,99</span>
+                            <span class="text-slate-400 text-xs">/ por mês</span>
+                        </div>
+
+                        <div class="border-t border-slate-200/60 my-6"></div>
+
+                        <ul class="space-y-3.5 text-sm text-slate-700 font-medium">
+                            <li class="flex items-start gap-2.5 text-green-700">
+                                <i data-lucide="check" class="h-4 w-4 text-green-600 mt-0.5 shrink-0"></i>
+                                <span>Tudo do Plano Free incluído</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="h-4 w-4 text-green-600 mt-0.5 shrink-0"></i>
+                                <span class="font-bold">Chat Nutricional com IA (Gemini)</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="h-4 w-4 text-green-600 mt-0.5 shrink-0"></i>
+                                <span class="font-bold">Análise de alimentos por foto</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="h-4 w-4 text-green-600 mt-0.5 shrink-0"></i>
+                                <span>Estimativa inteligente de calorias</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-8">
+                        <button onclick="openDownloadModal()" class="w-full py-4 px-4 rounded-xl text-center text-sm font-extrabold text-white bg-green-600 hover:bg-green-700 shadow-md shadow-green-100 hover:shadow-green-250 transition-all">
+                            Assinar Plano PRO
+                        </button>
+                    </div>
+                </div>
+
+                <!-- PLANO PRO MAX -->
+                <div class="bg-slate-900 border border-slate-800 text-white rounded-3xl p-8 relative flex flex-col justify-between min-h-[500px] hover:shadow-2xl transition-all duration-300">
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-heading font-black text-2xl text-emerald-400">Plano Pro Max</h3>
+                            <p class="text-slate-400 text-sm mt-1">A experiência premium suprema com cardápios da IA.</p>
+                        </div>
+
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl font-extrabold text-emerald-400">R$ 24,99</span>
+                            <span class="text-slate-500 text-xs">/ por mês</span>
+                        </div>
+
+                        <div class="border-t border-slate-800 my-6"></div>
+
+                        <ul class="space-y-3.5 text-sm text-slate-300">
+                            <li class="flex items-start gap-2.5 text-emerald-400">
+                                <i data-lucide="check" class="h-4 w-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                                <span>Tudo do Plano Pro incluído</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="h-4 w-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                                <span class="font-bold text-white">Cardápios personalizados por IA</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i data-lucide="check" class="h-4 w-4 text-emerald-400 mt-0.5 shrink-0"></i>
+                                <span class="font-bold text-white">Compra com Lista automática</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="pt-8">
+                        <button onclick="openDownloadModal()" class="w-full py-3.5 px-4 rounded-xl text-center text-sm font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 shadow-md shadow-emerald-900/40 transition-all">
+                            Assinar Plano PRO MAX
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO "EM DESENVOLVIMENTO" -->
+    <section id="desenvolvimento" class="py-20 bg-gradient-to-b from-slate-50 to-green-500/10 scroll-mt-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+            
+            <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-green-100 text-green-600 border border-green-200">
+                <i data-lucide="smartphone" class="h-8 w-8 animate-pulse"></i>
+            </div>
+
+            <div class="space-y-4">
+                <h2 class="font-heading font-black text-3xl text-slate-900 tracking-tight">
+                    Aplicativo Em Desenvolvimento 🚀
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+                    O Green Kora está sendo desenvolvido para oferecer uma experiência moderna, simples e inteligente para quem deseja melhorar sua alimentação e qualidade de vida.
+                </p>
+            </div>
+
+            <div class="pt-2">
+                <button onclick="openDownloadModal()" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm transition-all shadow-md">
+                    <span>Garantir Meu Acesso Antecipado</span>
+                    <i data-lucide="arrow-right" class="h-4 w-4"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RODAPÉ SECTION -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 border-b border-slate-800 pb-8">
+                
+                <!-- Logo footer -->
+                <div class="flex items-center gap-2.5">
+                    <div class="h-8 w-8 bg-white rounded-lg flex items-center justify-center overflow-hidden shrink-0">
+                        <svg width="26" height="26" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="24" r="18" fill="#15803d" />
+                            <circle cx="34" cy="32" r="15" fill="#166534" />
+                            <circle cx="66" cy="32" r="15" fill="#166534" />
+                            <path d="M 38 42 L 32 78 C 32 82 40 85 50 85 C 60 85 68 82 68 78 L 62 42 Z" fill="#86efac" />
+                            <circle cx="37" cy="51" r="5" fill="#1e293b" />
+                            <circle cx="63" cy="51" r="5" fill="#1e293b" />
+                            <path d="M 43 59 Q 50 69 57 59" stroke="#be123c" stroke-width="3.5" fill="#be123c" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <span class="font-heading font-black text-xl text-white tracking-tight">
+                        Green <span class="text-emerald-400">Kora</span>
+                    </span>
+                </div>
+
+                <!-- Links scroll items -->
+                <div class="flex flex-wrap items-center justify-center gap-6 text-sm">
+                    <a href="#home" class="hover:text-emerald-400 transition-colors">Início</a>
+                    <a href="#sobre" class="hover:text-emerald-400 transition-colors">Sobre</a>
+                    <a href="#ia-features" class="hover:text-emerald-400 transition-colors">Recursos e IA</a>
+                    <a href="#planos" class="hover:text-emerald-400 transition-colors">Planos</a>
+                    <a href="#desenvolvimento" class="hover:text-emerald-400 transition-colors">Desenvolvimento</a>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between pt-8 gap-4 text-xs">
+                <p>© <span id="year">2026</span> Green Kora. Todos os direitos reservados.</p>
+                <p class="flex items-center gap-1.5 bg-slate-800 px-3 py-1.5 rounded-full border border-slate-700/50">
+                    <span class="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                    <span>Contato: Em breve.</span>
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- DOWNLOAD MODAL ALERT -->
+    <div id="download-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs transition-opacity duration-300">
+        <div class="w-full max-w-md overflow-hidden rounded-3xl bg-white border border-slate-100 shadow-2xl relative transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+            <!-- Colored top header block -->
+            <div class="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-5 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="smartphone" class="h-5 w-5"></i>
+                    <h3 class="font-heading font-bold text-base">Lançamento em Breve! 🚀</h3>
+                </div>
+                <button onclick="closeDownloadModal()" class="rounded-full p-1.5 hover:bg-white/25 transition-colors text-white">
+                    <i data-lucide="x" class="h-5 w-5"></i>
+                </button>
+            </div>
+
+            <div class="p-6 text-center space-y-4">
+                
+                <!-- Mascot -->
+                <div class="mx-auto h-20 w-20 bg-green-50 rounded-2xl flex items-center justify-center border border-green-100">
+                    <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="24" r="18" fill="#15803d" />
+                        <circle cx="34" cy="32" r="15" fill="#166534" />
+                        <circle cx="66" cy="32" r="15" fill="#166534" />
+                        <circle cx="44" cy="18" r="14" fill="#22c55e" />
+                        <circle cx="56" cy="18" r="14" fill="#22c55e" />
+                        <circle cx="31" cy="30" r="12" fill="#22c55e" />
+                        <circle cx="69" cy="30" r="12" fill="#22c55e" />
+                        <path d="M 38 42 L 32 78 C 32 82 40 85 50 85 C 60 85 68 82 68 78 L 62 42 Z" fill="#86efac" />
+                        <path d="M 38 48 C 38 48 42 75 48 78" stroke="#4ade80" stroke-width="3.5" stroke-linecap="round" fill="none" />
+                        <circle cx="37" cy="51" r="5" fill="#1e293b" />
+                        <circle cx="35" cy="49" r="1.5" fill="#ffffff" />
+                        <circle cx="63" cy="51" r="5" fill="#1e293b" />
+                        <circle cx="61" cy="49" r="1.5" fill="#ffffff" />
+                        <path d="M 43 59 Q 50 69 57 59" stroke="#be123c" stroke-width="3.5" fill="#be123c" stroke-linecap="round" />
+                    </svg>
+                </div>
+
+                <div class="space-y-2">
+                    <p class="font-heading font-extrabold text-slate-800 text-lg">
+                        O Green Kora ainda está em desenvolvimento e será lançado em breve.
+                    </p>
+                    <p class="text-xs text-slate-500 leading-relaxed max-w-sm mx-auto">
+                        Nossa equipe está trabalhando a todo vapor para lançar a versão oficial na Google Play Store! 
+                    </p>
+                </div>
+
+                <div class="pt-4">
+                    <button onclick="closeDownloadModal()" class="w-full py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm rounded-xl transition-all shadow-md">
+                        Entendido
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Set dynamic current footer year
+        document.getElementById('year').innerText = new Date().getFullYear();
+
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile Menu Drawer Handler
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        
+        function toggleMobileMenu() {
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.setAttribute('data-lucide', 'x');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        }
+
+        // Modal Handlers
+        const downloadModal = document.getElementById('download-modal');
+        const modalContent = document.getElementById('modal-content');
+
+        function openDownloadModal() {
+            downloadModal.classList.remove('hidden');
+            downloadModal.classList.add('flex');
+            setTimeout(() => {
+                downloadModal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95', 'opacity-0');
+                modalContent.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeDownloadModal() {
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                downloadModal.classList.add('hidden');
+                downloadModal.classList.remove('flex');
+            }, 300);
+        }
+
+        // Close modal on click outside content
+        downloadModal.addEventListener('click', function(e) {
+            if (e.target === downloadModal) {
+                closeDownloadModal();
+            }
+        });
+    </script>
 </body>
 </html>
