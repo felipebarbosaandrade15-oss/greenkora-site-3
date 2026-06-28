@@ -677,79 +677,260 @@
                     </span>
                 </div>
 
-                <!-- Links scroll items -->
-                <div class="flex flex-wrap items-center justify-center gap-6 text-sm">
-                    <a href="#home" class="hover:text-emerald-400 transition-colors">Início</a>
-                    <a href="#sobre" class="hover:text-emerald-400 transition-colors">Sobre</a>
-                    <a href="#ia-features" class="hover:text-emerald-400 transition-colors">Recursos e IA</a>
-                    <a href="#planos" class="hover:text-emerald-400 transition-colors">Planos</a>
-                    <a href="#desenvolvimento" class="hover:text-emerald-400 transition-colors">Desenvolvimento</a>
+                <!-- Links scroll and policies items -->
+                <div class="flex flex-col items-center md:items-end gap-3 text-center md:text-right">
+                    <div class="flex flex-wrap items-center justify-center gap-6 text-sm">
+                        <a href="#home" class="hover:text-emerald-400 transition-colors">Início</a>
+                        <a href="#sobre" class="hover:text-emerald-400 transition-colors">Sobre</a>
+                        <a href="#ia-features" class="hover:text-emerald-400 transition-colors">Recursos e IA</a>
+                        <a href="#planos" class="hover:text-emerald-400 transition-colors">Planos</a>
+                        <a href="#desenvolvimento" class="hover:text-emerald-400 transition-colors">Desenvolvimento</a>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500">
+                        <button onclick="openPolicyModal('privacidade')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Privacidade</button>
+                        <span class="text-slate-800">•</span>
+                        <button onclick="openPolicyModal('termos')" class="hover:text-emerald-400 transition-colors cursor-pointer">Termos de Serviço</button>
+                        <span class="text-slate-800">•</span>
+                        <button onclick="openPolicyModal('reembolso')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Reembolso</button>
+                    </div>
                 </div>
 
             </div>
 
-            <div class="flex flex-col sm:flex-row items-center justify-between pt-8 gap-4 text-xs">
+            <!-- Lower footer rights row -->
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 text-xs text-slate-500">
                 <p>© <span id="year">2026</span> Green Kora. Todos os direitos reservados.</p>
                 <p class="flex items-center gap-1.5 bg-slate-800 px-3 py-1.5 rounded-full border border-slate-700/50">
                     <span class="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse"></span>
-                    <span>Contato: Em breve.</span>
+                    <a href="mailto:felipebarbosaandrade15@gmail.com" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
+                        Contato: <span class="underline">felipebarbosaandrade15@gmail.com</span>
+                    </a>
                 </p>
             </div>
 
         </div>
     </footer>
 
-    <!-- DOWNLOAD MODAL ALERT -->
-    <div id="download-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs transition-opacity duration-300">
-        <div class="w-full max-w-md overflow-hidden rounded-3xl bg-white border border-slate-100 shadow-2xl relative transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
-            <!-- Colored top header block -->
-            <div class="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-5 text-white flex justify-between items-center">
-                <div class="flex items-center gap-2">
-                    <i data-lucide="smartphone" class="h-5 w-5"></i>
-                    <h3 class="font-heading font-bold text-base">Lançamento em Breve! 🚀</h3>
+    <!-- INTERACTION DOWNLOAD MODAL -->
+    <div id="download-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-xs p-4 flex items-center justify-center transition-all duration-300 opacity-0">
+        <div id="download-modal-content" class="w-full max-w-md bg-white border border-slate-100 rounded-3xl p-8 text-center shadow-2xl relative transform scale-95 opacity-0 transition-all duration-300">
+            
+            <button onclick="closeDownloadModal()" class="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors">
+                <i data-lucide="x" class="h-5 w-5"></i>
+            </button>
+
+            <div class="mx-auto h-16 w-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center font-bold mb-6">
+                <i data-lucide="smartphone" class="h-8 w-8"></i>
+            </div>
+
+            <h3 class="font-heading font-black text-2xl text-slate-900 tracking-tight">Baixar Green Kora</h3>
+            <p class="text-slate-500 text-sm mt-2 leading-relaxed">
+                Nosso aplicativo está em desenvolvimento avançado! Deixe seu e-mail e seja um dos primeiros a receber o link de acesso exclusivo para iOS e Android.
+            </p>
+
+            <form onsubmit="handleDownloadSubmit(event)" class="mt-6 space-y-3">
+                <input type="email" required placeholder="Digite seu melhor e-mail" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 text-sm" />
+                <button type="submit" class="w-full py-3.5 bg-green-600 hover:bg-green-700 text-white font-extrabold text-sm rounded-xl transition-all shadow-md shadow-green-100">
+                    Garantir Acesso Antecipado
+                </button>
+            </form>
+
+            <p class="text-[10px] text-slate-400 mt-4 leading-normal">
+                Prometemos não enviar spam. Você receberá apenas atualizações importantes do desenvolvimento do aplicativo.
+            </p>
+        </div>
+    </div>
+
+    <!-- POLICY VIEW OVERLAY MODAL -->
+    <div id="policy-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-xs p-4 sm:p-6 md:p-8 flex items-center justify-center transition-all duration-300 opacity-0">
+        <div id="policy-modal-content" class="w-full max-w-4xl h-[85vh] bg-white border border-slate-100 rounded-3xl shadow-2xl flex flex-col overflow-hidden transform scale-95 opacity-0 transition-all duration-300">
+            <!-- Header -->
+            <div class="px-6 py-5 border-b border-slate-100 bg-slate-50 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shrink-0">
+                <div class="flex items-center gap-3">
+                    <div class="h-10 w-10 bg-green-100 rounded-xl flex items-center justify-center shrink-0">
+                        <svg width="26" height="26" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="24" r="18" fill="#15803d" />
+                            <circle cx="34" cy="32" r="15" fill="#166534" />
+                            <circle cx="66" cy="32" r="15" fill="#166534" />
+                            <path d="M 38 42 L 32 78 C 32 82 40 85 50 85 C 60 85 68 82 68 78 L 62 42 Z" fill="#86efac" />
+                            <circle cx="37" cy="51" r="5" fill="#1e293b" />
+                            <circle cx="63" cy="51" r="5" fill="#1e293b" />
+                            <path d="M 43 59 Q 50 69 57 59" stroke="#be123c" stroke-width="3.5" fill="#be123c" stroke-linecap="round" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="font-heading font-black text-lg text-slate-900 tracking-tight">Políticas e Diretrizes</h3>
+                        <p class="text-[10px] sm:text-xs text-slate-500">Green Kora • Transparência e Segurança</p>
+                    </div>
                 </div>
-                <button onclick="closeDownloadModal()" class="rounded-full p-1.5 hover:bg-white/25 transition-colors text-white">
-                    <i data-lucide="x" class="h-5 w-5"></i>
+                
+                <button onclick="closePolicyModal()" class="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-extrabold text-xs rounded-xl transition-all cursor-pointer">
+                    <i data-lucide="arrow-left" class="h-3.5 w-3.5"></i>
+                    <span>Voltar para o Site</span>
                 </button>
             </div>
 
-            <div class="p-6 text-center space-y-4">
+            <!-- Tab Switcher -->
+            <div class="px-6 py-2 border-b border-slate-100 bg-slate-50 flex gap-1 overflow-x-auto shrink-0 scrollbar-none">
+                <button id="tab-privacidade" onclick="switchPolicyTab('privacidade')" class="px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm text-green-750 bg-green-50 hover:bg-green-100 border border-green-200 transition-all shrink-0 cursor-pointer">
+                    Política de Privacidade
+                </button>
+                <button id="tab-termos" onclick="switchPolicyTab('termos')" class="px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all shrink-0 cursor-pointer">
+                    Termos de Serviço
+                </button>
+                <button id="tab-reembolso" onclick="switchPolicyTab('reembolso')" class="px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all shrink-0 cursor-pointer">
+                    Política de Reembolso
+                </button>
+            </div>
+
+            <!-- Contents Scrollable Container -->
+            <div class="flex-1 overflow-y-auto p-6 md:p-8 space-y-6 text-slate-600 text-sm leading-relaxed scroll-smooth">
                 
-                <!-- Mascot -->
-                <div class="mx-auto h-20 w-20 bg-green-50 rounded-2xl flex items-center justify-center border border-green-100">
-                    <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="50" cy="24" r="18" fill="#15803d" />
-                        <circle cx="34" cy="32" r="15" fill="#166534" />
-                        <circle cx="66" cy="32" r="15" fill="#166534" />
-                        <circle cx="44" cy="18" r="14" fill="#22c55e" />
-                        <circle cx="56" cy="18" r="14" fill="#22c55e" />
-                        <circle cx="31" cy="30" r="12" fill="#22c55e" />
-                        <circle cx="69" cy="30" r="12" fill="#22c55e" />
-                        <path d="M 38 42 L 32 78 C 32 82 40 85 50 85 C 60 85 68 82 68 78 L 62 42 Z" fill="#86efac" />
-                        <path d="M 38 48 C 38 48 42 75 48 78" stroke="#4ade80" stroke-width="3.5" stroke-linecap="round" fill="none" />
-                        <circle cx="37" cy="51" r="5" fill="#1e293b" />
-                        <circle cx="35" cy="49" r="1.5" fill="#ffffff" />
-                        <circle cx="63" cy="51" r="5" fill="#1e293b" />
-                        <circle cx="61" cy="49" r="1.5" fill="#ffffff" />
-                        <path d="M 43 59 Q 50 69 57 59" stroke="#be123c" stroke-width="3.5" fill="#be123c" stroke-linecap="round" />
-                    </svg>
-                </div>
-
-                <div class="space-y-2">
-                    <p class="font-heading font-extrabold text-slate-800 text-lg">
-                        O Green Kora ainda está em desenvolvimento e será lançado em breve.
+                <!-- PRIVACIDADE TAB -->
+                <div id="content-privacidade" class="space-y-6">
+                    <h4 class="font-heading font-black text-xl text-slate-900 tracking-tight border-b border-slate-100 pb-2">
+                        Política de Privacidade
+                    </h4>
+                    <p>
+                        A sua privacidade é de extrema importância para nós. No <strong>Green Kora</strong>, temos uma política de respeito e proteção às informações pessoais que coletamos e processamos durante o uso do nosso aplicativo e plataforma.
                     </p>
-                    <p class="text-xs text-slate-500 leading-relaxed max-w-sm mx-auto">
-                        Nossa equipe está trabalhando a todo vapor para lançar a versão oficial na Google Play Store! 
+                    
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <h5 class="font-bold text-slate-800 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-green-500"></span> 1. Coleta de Informações
+                        </h5>
+                        <p class="pl-4">
+                            Coletamos informações fornecidas ativamente por você no momento do cadastro ou preenchimento de perfil nutricional, incluindo seu nome, e-mail, idade, peso, altura, gênero, hábitos alimentares e objetivos de saúde. Também coletamos registros de uso automático de navegação para aprimoramento e personalização de nossos serviços e algoritmos de IA.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <h5 class="font-bold text-slate-800 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-green-500"></span> 2. Uso dos Dados de Saúde e Refeições
+                        </h5>
+                        <p class="pl-4">
+                            Todos os seus dados de diário de refeições, consumo de água, registros de peso e metas calóricas são guardados e processados sob rigorosa confidencialidade. Eles são utilizados estritamente para fornecer as análises, sugestões de cardápios inteligentes alimentados por IA (Gemini) e relatórios de progresso. <strong>Nós nunca venderemos ou compartilharemos seus dados com terceiros para fins comerciais ou publicitários.</strong>
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <h5 class="font-bold text-slate-800 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-green-500"></span> 3. Segurança dos Seus Dados
+                        </h5>
+                        <p class="pl-4">
+                            Implementamos medidas técnicas e organizacionais de segurança para proteger seus dados contra acessos não autorizados, perdas, destruições acidentais ou alterações indesejadas. Seus dados são criptografados durante a transmissão e armazenados em servidores cloud seguros.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <h5 class="font-bold text-slate-800 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-green-500"></span> 4. Seus Direitos e Exclusão de Conta
+                        </h5>
+                        <p class="pl-4">
+                            Você é totalmente livre para recusar a nossa solicitação de informações ou cadastro de perfil, entendendo que talvez não possamos fornecer alguns dos serviços desejados. Você possui o direito de solicitar a alteração, retificação ou exclusão definitiva de todos os seus dados a qualquer momento enviando um e-mail para <a href="mailto:felipebarbosaandrade15@gmail.com" class="text-green-600 font-bold hover:underline">felipebarbosaandrade15@gmail.com</a>.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- TERMOS TAB -->
+                <div id="content-termos" class="space-y-6 hidden">
+                    <h4 class="font-heading font-black text-xl text-slate-900 tracking-tight border-b border-slate-100 pb-2">
+                        Termos de Serviço e Uso
+                    </h4>
+                    <p>
+                        Ao baixar, instalar ou utilizar o aplicativo <strong>Green Kora</strong>, você concorda voluntariamente em cumprir e vincular-se aos seguintes Termos de Serviço:
                     </p>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <h5 class="font-bold text-slate-800 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-emerald-500"></span> 1. Natureza Informativa e Uso da IA
+                        </h5>
+                        <p class="pl-4">
+                            O Green Kora é um aplicativo focado em bem-estar geral, acompanhamento de dieta e hábitos de vida saudáveis. <strong>As informações fornecidas, incluindo sugestões de cardápios inteligentes geradas por Inteligência Artificial (como o modelo Gemini), têm caráter puramente informativo e educacional.</strong> Elas não constituem aconselhamento médico ou plano alimentar de cunho prescritivo e não devem substituir a avaliação individual de um médico ou nutricionista profissional. Consulte sempre um profissional de saúde antes de iniciar dietas restritivas ou novos hábitos.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <h5 class="font-bold text-slate-800 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-emerald-500"></span> 2. Responsabilidade do Usuário
+                        </h5>
+                        <p class="pl-4">
+                            É de sua exclusiva responsabilidade fornecer dados verdadeiros sobre sua condição física, alimentos consumidos e peso. Você deve proteger suas credenciais de acesso ao aplicativo, sendo o único responsável pelas atividades que ocorram na sua conta.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <h5 class="font-bold text-slate-800 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-emerald-500"></span> 3. Planos e Cobranças
+                        </h5>
+                        <p class="pl-4">
+                            Oferecemos serviços gratuitos e planos pagos de assinatura recorrente (Pro e Max). O pagamento dá acesso aos recursos adicionais descritos na página de planos por um período determinado de ciclo (mensal, semestral ou anual). As assinaturas são renovadas automaticamente a menos que o usuário solicite o cancelamento antes do fim do ciclo.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <h5 class="font-bold text-slate-800 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-emerald-500"></span> 4. Rescisão e Modificações
+                        </h5>
+                        <p class="pl-4">
+                            Reservamo-nos o direito de modificar ou descontinuar partes do aplicativo a qualquer momento. Também podemos alterar estes Termos de Serviço para refletir novas funcionalidades e mudanças legais, notificando os usuários no aplicativo.
+                        </p>
+                    </div>
                 </div>
 
-                <div class="pt-4">
-                    <button onclick="closeDownloadModal()" class="w-full py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm rounded-xl transition-all shadow-md">
-                        Entendido
-                    </button>
+                <!-- REEMBOLSO TAB -->
+                <div id="content-reembolso" class="space-y-6 hidden">
+                    <h4 class="font-heading font-black text-xl text-slate-900 tracking-tight border-b border-slate-100 pb-2">
+                        Política de Cancelamento e Reembolso
+                    </h4>
+                    <p>
+                        A sua satisfação com o <strong>Green Kora</strong> é muito importante para nós. Nossa política de reembolso e cancelamento é elaborada com base no respeito ao consumidor e transparência.
+                    </p>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <h5 class="font-bold text-slate-800 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-emerald-500"></span> 1. Garantia de Reembolso Incondicional (7 Dias)
+                        </h5>
+                        <p class="pl-4">
+                            Conforme assegurado pelo Código de Defesa do Consumidor brasileiro e nossa própria política de garantia de qualidade, você tem até <strong>7 (sete) dias corridos</strong> a partir da data de aquisição ou início de qualquer plano pago (Pro ou Max) para desistir da compra e solicitar o reembolso total do valor pago. Não faremos perguntas! O reembolso será processado no mesmo meio de pagamento utilizado para a compra original.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <h5 class="font-bold text-slate-800 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-emerald-500"></span> 2. Cancelamento a Qualquer Momento
+                        </h5>
+                        <p class="pl-4">
+                            Você pode realizar o cancelamento da renovação automática de sua assinatura de forma simples a qualquer momento diretamente pela área de assinaturas do aplicativo ou enviando uma solicitação rápida para nossa equipe de suporte pelo e-mail <a href="mailto:felipebarbosaandrade15@gmail.com" class="text-green-600 font-bold hover:underline">felipebarbosaandrade15@gmail.com</a>. O cancelamento impede cobranças nos ciclos de renovação subsequentes, mantendo seu acesso premium ativo até a data de expiração do ciclo já pago.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <h5 class="font-bold text-slate-800 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-emerald-500"></span> 3. Renovações e Ciclos Subsequentes
+                        </h5>
+                        <p class="pl-4">
+                            Após decorridos os 7 dias iniciais da compra ou renovação, as parcelas ou mensalidades já cobradas não são elegíveis para reembolso proporcional ou parcial devido ao cancelamento no meio do ciclo de vigência contratado.
+                        </p>
+                    </div>
+
+                    <div class="space-y-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <h5 class="font-bold text-slate-800 flex items-center gap-2">
+                            <span class="h-2 w-2 rounded-full bg-emerald-500"></span> 4. Como Solicitar o Reembolso
+                        </h5>
+                        <p class="pl-4">
+                            Para solicitar seu reembolso de forma rápida e eficiente dentro do período de 7 dias da garantia, basta nos enviar um e-mail com o assunto "Solicitação de Reembolso - Green Kora" informando seu e-mail de conta cadastrado para <a href="mailto:felipebarbosaandrade15@gmail.com" class="text-green-600 font-bold hover:underline">felipebarbosaandrade15@gmail.com</a>. Nossa equipe responderá em até 48 horas úteis e efetuará o estorno.
+                        </p>
+                    </div>
                 </div>
 
+            </div>
+            
+            <!-- Bottom Info Banner -->
+            <div class="p-6 bg-slate-50 border-t border-slate-100 text-center shrink-0">
+                <p class="text-xs text-slate-500">
+                    Última atualização: 28 de junho de 2026. Em caso de dúvidas ou sugestões adicionais, fale conosco pelo e-mail <a href="mailto:felipebarbosaandrade15@gmail.com" class="text-green-600 font-bold hover:underline">felipebarbosaandrade15@gmail.com</a>.
+                </p>
             </div>
         </div>
     </div>
@@ -759,53 +940,13 @@
         // Set dynamic current footer year
         document.getElementById('year').innerText = new Date().getFullYear();
 
-        // Initialize Lucide icons
+        // Initialize Lucide Icons
         lucide.createIcons();
 
-        // Mobile Menu Drawer Handler
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        
+        // Menu drawer mobile toggle
         function toggleMobileMenu() {
-            if (mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.remove('hidden');
-                menuIcon.setAttribute('data-lucide', 'x');
-            } else {
-                mobileMenu.classList.add('hidden');
-                menuIcon.setAttribute('data-lucide', 'menu');
-            }
-            lucide.createIcons();
-        }
-
-        // Modal Handlers
-        const downloadModal = document.getElementById('download-modal');
-        const modalContent = document.getElementById('modal-content');
-
-        function openDownloadModal() {
-            downloadModal.classList.remove('hidden');
-            downloadModal.classList.add('flex');
-            setTimeout(() => {
-                downloadModal.classList.remove('opacity-0');
-                modalContent.classList.remove('scale-95', 'opacity-0');
-                modalContent.classList.add('scale-100', 'opacity-100');
-            }, 10);
-        }
-
-        function closeDownloadModal() {
-            modalContent.classList.remove('scale-100', 'opacity-100');
-            modalContent.classList.add('scale-95', 'opacity-0');
-            setTimeout(() => {
-                downloadModal.classList.add('hidden');
-                downloadModal.classList.remove('flex');
-            }, 300);
-        }
-
-        // Close modal on click outside content
-        downloadModal.addEventListener('click', function(e) {
-            if (e.target === downloadModal) {
-                closeDownloadModal();
-            }
-        });
-    </script>
-</body>
-</html>
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('menu-icon');
+            const isHidden = menu.classList.contains('hidden');
+            
+            if (isHidden) {
