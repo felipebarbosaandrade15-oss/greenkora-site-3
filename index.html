@@ -93,7 +93,7 @@
 
             <!-- Action Call-to-Actions -->
             <div class="hidden lg:flex items-center gap-6 shrink-0 ml-4">
-                <button onclick="openDownloadModal()" class="flex items-center gap-1.5 text-[10px] font-extrabold text-white bg-green-600 hover:bg-green-700 px-3.5 py-1.5 rounded-full shadow-md shadow-green-100 hover:shadow-green-200 transition-all whitespace-nowrap">
+                <button data-trigger="download" type="button" class="flex items-center gap-1.5 text-[10px] font-extrabold text-white bg-green-600 hover:bg-green-700 px-3.5 py-1.5 rounded-full shadow-md shadow-green-100 hover:shadow-green-200 transition-all whitespace-nowrap cursor-pointer">
                     <i data-lucide="smartphone" class="h-3 w-3"></i>
                     <span>Baixar Aplicativo</span>
                 </button>
@@ -101,7 +101,7 @@
 
             <!-- Mobile Hamburguer Toggle -->
             <div class="flex items-center gap-2.5 lg:hidden">
-                <button onclick="toggleMobileMenu()" class="p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors">
+                <button data-trigger="mobile-menu-toggle" type="button" class="p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors cursor-pointer">
                     <i data-lucide="menu" class="h-6 w-6" id="menu-icon"></i>
                 </button>
             </div>
@@ -109,13 +109,13 @@
 
         <!-- Mobile Navigation Drawer -->
         <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-150 bg-white py-4 px-4 space-y-3 shadow-lg">
-            <a href="#home" onclick="toggleMobileMenu()" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2">Início</a>
-            <a href="#sobre" onclick="toggleMobileMenu()" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2">Sobre</a>
-            <a href="#ia-features" onclick="toggleMobileMenu()" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2">Recursos e IA</a>
-            <a href="#planos" onclick="toggleMobileMenu()" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2">Planos</a>
-            <a href="#desenvolvimento" onclick="toggleMobileMenu()" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2">Desenvolvimento</a>
+            <a href="#home" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2 navigation-link">Início</a>
+            <a href="#sobre" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2 navigation-link">Sobre</a>
+            <a href="#ia-features" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2 navigation-link">Recursos e IA</a>
+            <a href="#planos" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2 navigation-link">Planos</a>
+            <a href="#desenvolvimento" class="block text-base font-bold text-slate-700 hover:text-green-600 py-2 navigation-link">Desenvolvimento</a>
             <div class="pt-2 border-t border-slate-100 flex flex-col gap-3">
-                <button onclick="toggleMobileMenu(); openDownloadModal()" class="w-full text-center py-2.5 rounded-xl text-white bg-green-600 text-sm font-bold flex items-center justify-center gap-2">
+                <button data-trigger="mobile-download" type="button" class="w-full text-center py-2.5 rounded-xl text-white bg-green-600 text-sm font-bold flex items-center justify-center gap-2 cursor-pointer">
                     <i data-lucide="smartphone" class="h-4 w-4"></i> Baixar Aplicativo
                 </button>
             </div>
@@ -150,7 +150,7 @@
                     </p>
 
                     <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <button onclick="openDownloadModal()" class="w-auto px-7 py-3 rounded-full bg-green-600 hover:bg-green-700 text-white font-extrabold text-sm flex items-center justify-center gap-2.5 shadow-md shadow-green-100 hover:shadow-green-200 hover:-translate-y-0.5 transition-all">
+                        <button data-trigger="download" type="button" class="w-auto px-7 py-3 rounded-full bg-green-600 hover:bg-green-700 text-white font-extrabold text-sm flex items-center justify-center gap-2.5 shadow-md shadow-green-100 hover:shadow-green-200 hover:-translate-y-0.5 transition-all cursor-pointer">
                             <i data-lucide="smartphone" class="h-4 w-4"></i>
                             <span>Baixar Aplicativo</span>
                         </button>
@@ -532,7 +532,7 @@
                     </div>
 
                     <div class="pt-8">
-                        <button onclick="openDownloadModal()" class="w-full py-3.5 px-4 rounded-xl text-center text-sm font-bold text-green-700 bg-green-500/10 hover:bg-green-500/20 transition-all border border-green-200/50">
+                        <button data-trigger="download" type="button" class="w-full py-3.5 px-4 rounded-xl text-center text-sm font-bold text-green-700 bg-green-500/10 hover:bg-green-500/20 transition-all border border-green-200/50 cursor-pointer">
                             Começar Agora
                         </button>
                     </div>
@@ -578,7 +578,7 @@
                     </div>
 
                     <div class="pt-8">
-                        <button onclick="openDownloadModal()" class="w-full py-4 px-4 rounded-xl text-center text-sm font-extrabold text-white bg-green-600 hover:bg-green-700 shadow-md shadow-green-100 hover:shadow-green-250 transition-all">
+                        <button data-trigger="download" type="button" class="w-full py-4 px-4 rounded-xl text-center text-sm font-extrabold text-white bg-green-600 hover:bg-green-700 shadow-md shadow-green-100 hover:shadow-green-250 transition-all cursor-pointer">
                             Assinar Plano PRO
                         </button>
                     </div>
@@ -616,7 +616,7 @@
                     </div>
 
                     <div class="pt-8">
-                        <button onclick="openDownloadModal()" class="w-full py-3.5 px-4 rounded-xl text-center text-sm font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 shadow-md shadow-emerald-900/40 transition-all">
+                        <button data-trigger="download" type="button" class="w-full py-3.5 px-4 rounded-xl text-center text-sm font-bold text-slate-950 bg-emerald-400 hover:bg-emerald-300 shadow-md shadow-emerald-900/40 transition-all cursor-pointer">
                             Assinar Plano PRO MAX
                         </button>
                     </div>
@@ -644,7 +644,7 @@
             </div>
 
             <div class="pt-2">
-                <button onclick="openDownloadModal()" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm transition-all shadow-md">
+                <button data-trigger="download" type="button" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm transition-all shadow-md cursor-pointer">
                     <span>Garantir Meu Acesso Antecipado</span>
                     <i data-lucide="arrow-right" class="h-4 w-4"></i>
                 </button>
@@ -687,18 +687,17 @@
                         <a href="#desenvolvimento" class="hover:text-emerald-400 transition-colors">Desenvolvimento</a>
                     </div>
                     <div class="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-500">
-                        <button onclick="openPolicyModal('privacidade')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Privacidade</button>
+                        <button data-trigger-policy="privacidade" type="button" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Privacidade</button>
                         <span class="text-slate-800">•</span>
-                        <button onclick="openPolicyModal('termos')" class="hover:text-emerald-400 transition-colors cursor-pointer">Termos de Serviço</button>
+                        <button data-trigger-policy="termos" type="button" class="hover:text-emerald-400 transition-colors cursor-pointer">Termos de Serviço</button>
                         <span class="text-slate-800">•</span>
-                        <button onclick="openPolicyModal('reembolso')" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Reembolso</button>
+                        <button data-trigger-policy="reembolso" type="button" class="hover:text-emerald-400 transition-colors cursor-pointer">Política de Reembolso</button>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Lower footer rights row -->
-            <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 text-xs text-slate-500">
+            <div class="flex flex-col sm:flex-row items-center justify-between pt-8 gap-4 text-xs">
                 <p>© <span id="year">2026</span> Green Kora. Todos os direitos reservados.</p>
                 <p class="flex items-center gap-1.5 bg-slate-800 px-3 py-1.5 rounded-full border border-slate-700/50">
                     <span class="h-1.5 w-1.5 rounded-full bg-green-400 animate-pulse"></span>
@@ -711,33 +710,58 @@
         </div>
     </footer>
 
-    <!-- INTERACTION DOWNLOAD MODAL -->
-    <div id="download-modal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-xs p-4 flex items-center justify-center transition-all duration-300 opacity-0">
-        <div id="download-modal-content" class="w-full max-w-md bg-white border border-slate-100 rounded-3xl p-8 text-center shadow-2xl relative transform scale-95 opacity-0 transition-all duration-300">
-            
-            <button onclick="closeDownloadModal()" class="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100 text-slate-400 hover:text-slate-600 transition-colors">
-                <i data-lucide="x" class="h-5 w-5"></i>
-            </button>
-
-            <div class="mx-auto h-16 w-16 bg-green-100 text-green-600 rounded-2xl flex items-center justify-center font-bold mb-6">
-                <i data-lucide="smartphone" class="h-8 w-8"></i>
+    <!-- DOWNLOAD MODAL ALERT -->
+    <div id="download-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black/60 p-4 backdrop-blur-xs transition-opacity duration-300">
+        <div class="w-full max-w-md overflow-hidden rounded-3xl bg-white border border-slate-100 shadow-2xl relative transform scale-95 opacity-0 transition-all duration-300" id="modal-content">
+            <!-- Colored top header block -->
+            <div class="bg-gradient-to-r from-green-600 to-emerald-600 px-6 py-5 text-white flex justify-between items-center">
+                <div class="flex items-center gap-2">
+                    <i data-lucide="smartphone" class="h-5 w-5"></i>
+                    <h3 class="font-heading font-bold text-base">Lançamento em Breve! 🚀</h3>
+                </div>
+                <button id="btn-close-download" type="button" class="rounded-full p-1.5 hover:bg-white/25 transition-colors text-white cursor-pointer">
+                    <i data-lucide="x" class="h-5 w-5"></i>
+                </button>
             </div>
 
-            <h3 class="font-heading font-black text-2xl text-slate-900 tracking-tight">Baixar Green Kora</h3>
-            <p class="text-slate-500 text-sm mt-2 leading-relaxed">
-                Nosso aplicativo está em desenvolvimento avançado! Deixe seu e-mail e seja um dos primeiros a receber o link de acesso exclusivo para iOS e Android.
-            </p>
+            <div class="p-6 text-center space-y-4">
+                
+                <!-- Mascot -->
+                <div class="mx-auto h-20 w-20 bg-green-50 rounded-2xl flex items-center justify-center border border-green-100">
+                    <svg width="60" height="60" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="24" r="18" fill="#15803d" />
+                        <circle cx="34" cy="32" r="15" fill="#166534" />
+                        <circle cx="66" cy="32" r="15" fill="#166534" />
+                        <circle cx="44" cy="18" r="14" fill="#22c55e" />
+                        <circle cx="56" cy="18" r="14" fill="#22c55e" />
+                        <circle cx="31" cy="30" r="12" fill="#22c55e" />
+                        <circle cx="69" cy="30" r="12" fill="#22c55e" />
+                        <path d="M 38 42 L 32 78 C 32 82 40 85 50 85 C 60 85 68 82 68 78 L 62 42 Z" fill="#86efac" />
+                        <path d="M 38 48 C 38 48 42 75 48 78" stroke="#4ade80" stroke-width="3.5" stroke-linecap="round" fill="none" />
+                        <circle cx="37" cy="51" r="5" fill="#1e293b" />
+                        <circle cx="35" cy="49" r="1.5" fill="#ffffff" />
+                        <circle cx="63" cy="51" r="5" fill="#1e293b" />
+                        <circle cx="61" cy="49" r="1.5" fill="#ffffff" />
+                        <path d="M 43 59 Q 50 69 57 59" stroke="#be123c" stroke-width="3.5" fill="#be123c" stroke-linecap="round" />
+                    </svg>
+                </div>
 
-            <form onsubmit="handleDownloadSubmit(event)" class="mt-6 space-y-3">
-                <input type="email" required placeholder="Digite seu melhor e-mail" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-500/20 focus:border-green-500 text-sm" />
-                <button type="submit" class="w-full py-3.5 bg-green-600 hover:bg-green-700 text-white font-extrabold text-sm rounded-xl transition-all shadow-md shadow-green-100">
-                    Garantir Acesso Antecipado
-                </button>
-            </form>
+                <div class="space-y-2">
+                    <p class="font-heading font-extrabold text-slate-800 text-lg">
+                        O Green Kora ainda está em desenvolvimento e será lançado em breve.
+                    </p>
+                    <p class="text-xs text-slate-500 leading-relaxed max-w-sm mx-auto">
+                        Nossa equipe está trabalhando a todo vapor para lançar a versão oficial na Google Play Store! 
+                    </p>
+                </div>
 
-            <p class="text-[10px] text-slate-400 mt-4 leading-normal">
-                Prometemos não enviar spam. Você receberá apenas atualizações importantes do desenvolvimento do aplicativo.
-            </p>
+                <div class="pt-4">
+                    <button id="btn-confirm-download" type="button" class="w-full py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-sm rounded-xl transition-all shadow-md cursor-pointer">
+                        Entendido
+                    </button>
+                </div>
+
+            </div>
         </div>
     </div>
 
@@ -764,7 +788,7 @@
                     </div>
                 </div>
                 
-                <button onclick="closePolicyModal()" class="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-extrabold text-xs rounded-xl transition-all cursor-pointer">
+                <button id="btn-close-policy-header" type="button" class="inline-flex items-center gap-1.5 px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-extrabold text-xs rounded-xl transition-all cursor-pointer">
                     <i data-lucide="arrow-left" class="h-3.5 w-3.5"></i>
                     <span>Voltar para o Site</span>
                 </button>
@@ -772,13 +796,13 @@
 
             <!-- Tab Switcher -->
             <div class="px-6 py-2 border-b border-slate-100 bg-slate-50 flex gap-1 overflow-x-auto shrink-0 scrollbar-none">
-                <button id="tab-privacidade" onclick="switchPolicyTab('privacidade')" class="px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm text-green-750 bg-green-50 hover:bg-green-100 border border-green-200 transition-all shrink-0 cursor-pointer">
+                <button id="tab-privacidade" type="button" class="px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm text-green-700 bg-green-50 hover:bg-green-100 border border-green-200 transition-all shrink-0 cursor-pointer">
                     Política de Privacidade
                 </button>
-                <button id="tab-termos" onclick="switchPolicyTab('termos')" class="px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all shrink-0 cursor-pointer">
+                <button id="tab-termos" type="button" class="px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all shrink-0 cursor-pointer">
                     Termos de Serviço
                 </button>
-                <button id="tab-reembolso" onclick="switchPolicyTab('reembolso')" class="px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all shrink-0 cursor-pointer">
+                <button id="tab-reembolso" type="button" class="px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all shrink-0 cursor-pointer">
                     Política de Reembolso
                 </button>
             </div>
@@ -937,16 +961,287 @@
 
     <!-- SCRIPTS -->
     <script>
-        // Set dynamic current footer year
-        document.getElementById('year').innerText = new Date().getFullYear();
+        // 1. SAFE INTERACTION HANDLERS (Declared globally)
+        function safeCreateIcons() {
+            try {
+                if (typeof lucide !== 'undefined' && lucide && typeof lucide.createIcons === 'function') {
+                    lucide.createIcons();
+                }
+            } catch (e) {
+                console.warn('Lucide icons could not be rendered:', e);
+            }
+        }
 
-        // Initialize Lucide Icons
-        lucide.createIcons();
-
-        // Menu drawer mobile toggle
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            const icon = document.getElementById('menu-icon');
-            const isHidden = menu.classList.contains('hidden');
-            
-            if (isHidden) {
+            try {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const menuIcon = document.getElementById('menu-icon');
+                if (!mobileMenu || !menuIcon) return;
+
+                if (mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.remove('hidden');
+                    menuIcon.setAttribute('data-lucide', 'x');
+                } else {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.setAttribute('data-lucide', 'menu');
+                }
+                safeCreateIcons();
+            } catch (e) {
+                console.error('Error toggling mobile menu:', e);
+            }
+        }
+
+        function openDownloadModal() {
+            try {
+                const downloadModal = document.getElementById('download-modal');
+                const modalContent = document.getElementById('modal-content');
+                if (!downloadModal || !modalContent) return;
+
+                downloadModal.classList.remove('hidden');
+                downloadModal.classList.add('flex');
+                setTimeout(() => {
+                    downloadModal.classList.remove('opacity-0');
+                    modalContent.classList.remove('scale-95', 'opacity-0');
+                    modalContent.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            } catch (e) {
+                console.error('Error opening download modal:', e);
+            }
+        }
+
+        // Close Mobile Menu completely
+        function closeMobileMenu() {
+            try {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const menuIcon = document.getElementById('menu-icon');
+                if (!mobileMenu) return;
+                mobileMenu.classList.add('hidden');
+                if (menuIcon) {
+                    menuIcon.setAttribute('data-lucide', 'menu');
+                }
+                safeCreateIcons();
+            } catch (e) {}
+        }
+
+        function closeDownloadModal() {
+            try {
+                const downloadModal = document.getElementById('download-modal');
+                const modalContent = document.getElementById('modal-content');
+                if (!downloadModal || !modalContent) return;
+
+                modalContent.classList.remove('scale-100', 'opacity-100');
+                modalContent.classList.add('scale-95', 'opacity-0');
+                setTimeout(() => {
+                    downloadModal.classList.add('hidden');
+                    downloadModal.classList.remove('flex');
+                }, 300);
+            } catch (e) {
+                console.error('Error closing download modal:', e);
+            }
+        }
+
+        function openPolicyModal(activeTab) {
+            try {
+                const policyModal = document.getElementById('policy-modal');
+                const policyModalContent = document.getElementById('policy-modal-content');
+                if (!policyModal || !policyModalContent) return;
+
+                policyModal.classList.remove('hidden');
+                policyModal.classList.add('flex');
+                switchPolicyTab(activeTab);
+                setTimeout(() => {
+                    policyModal.classList.remove('opacity-0');
+                    policyModal.classList.add('opacity-100');
+                    policyModalContent.classList.remove('scale-95', 'opacity-0');
+                    policyModalContent.classList.add('scale-100', 'opacity-100');
+                }, 10);
+            } catch (e) {
+                console.error('Error opening policy modal:', e);
+            }
+        }
+
+        function closePolicyModal() {
+            try {
+                const policyModal = document.getElementById('policy-modal');
+                const policyModalContent = document.getElementById('policy-modal-content');
+                if (!policyModal || !policyModalContent) return;
+
+                policyModalContent.classList.remove('scale-100', 'opacity-100');
+                policyModalContent.classList.add('scale-95', 'opacity-0');
+                policyModal.classList.remove('opacity-100');
+                policyModal.classList.add('opacity-0');
+                setTimeout(() => {
+                    policyModal.classList.add('hidden');
+                    policyModal.classList.remove('flex');
+                }, 300);
+            } catch (e) {
+                console.error('Error closing policy modal:', e);
+            }
+        }
+
+        function switchPolicyTab(tabId) {
+            try {
+                const tabs = ['privacidade', 'termos', 'reembolso'];
+                tabs.forEach(t => {
+                    const btn = document.getElementById(`tab-${t}`);
+                    const content = document.getElementById(`content-${t}`);
+                    if (!btn || !content) return;
+
+                    if (t === tabId) {
+                        btn.className = "px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm text-green-700 bg-green-50 hover:bg-green-100 border border-green-200 transition-all shrink-0 cursor-pointer";
+                        content.classList.remove('hidden');
+                    } else {
+                        btn.className = "px-4 py-2.5 rounded-xl font-heading font-bold text-xs sm:text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-all shrink-0 cursor-pointer";
+                        content.classList.add('hidden');
+                    }
+                });
+            } catch (e) {
+                console.error('Error switching policy tab:', e);
+            }
+        }
+
+        // 2. DOM INITIALIZATION & SAFE EVENT LISTENERS
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set dynamic current footer year safely
+            try {
+                const yearEl = document.getElementById('year');
+                if (yearEl) {
+                    yearEl.innerText = new Date().getFullYear().toString();
+                }
+            } catch (e) {
+                console.warn('Could not set dynamic year:', e);
+            }
+
+            // Bind click outside events safely
+            try {
+                const downloadModal = document.getElementById('download-modal');
+                if (downloadModal) {
+                    downloadModal.addEventListener('click', (e) => {
+                        if (e.target === downloadModal) {
+                            closeDownloadModal();
+                        }
+                    });
+                }
+            } catch (e) {}
+
+            try {
+                const policyModal = document.getElementById('policy-modal');
+                if (policyModal) {
+                    policyModal.addEventListener('click', (e) => {
+                        if (e.target === policyModal) {
+                            closePolicyModal();
+                        }
+                    });
+                }
+            } catch (e) {}
+
+            // Dynamic event binding for Download buttons
+            try {
+                document.querySelectorAll('[data-trigger="download"]').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        openDownloadModal();
+                    });
+                });
+            } catch (e) {
+                console.error('Error binding download buttons:', e);
+            }
+
+            // Dynamic event binding for policy links
+            try {
+                document.querySelectorAll('[data-trigger-policy]').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const policyTab = btn.getAttribute('data-trigger-policy');
+                        openPolicyModal(policyTab);
+                    });
+                });
+            } catch (e) {
+                console.error('Error binding policy buttons:', e);
+            }
+
+            // Dynamic binding for mobile-menu trigger
+            try {
+                const mobileMenuToggle = document.querySelector('[data-trigger="mobile-menu-toggle"]');
+                if (mobileMenuToggle) {
+                    mobileMenuToggle.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        toggleMobileMenu();
+                    });
+                }
+            } catch (e) {}
+
+            // Dynamic binding for mobile download button (closes menu first then opens modal)
+            try {
+                const mobileDownload = document.querySelector('[data-trigger="mobile-download"]');
+                if (mobileDownload) {
+                    mobileDownload.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        closeMobileMenu();
+                        openDownloadModal();
+                    });
+                }
+            } catch (e) {}
+
+            // Close buttons in Modals
+            try {
+                const btnCloseDownload = document.getElementById('btn-close-download');
+                if (btnCloseDownload) {
+                    btnCloseDownload.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        closeDownloadModal();
+                    });
+                }
+                const btnConfirmDownload = document.getElementById('btn-confirm-download');
+                if (btnConfirmDownload) {
+                    btnConfirmDownload.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        closeDownloadModal();
+                    });
+                }
+            } catch (e) {}
+
+            try {
+                const btnClosePolicyHeader = document.getElementById('btn-close-policy-header');
+                if (btnClosePolicyHeader) {
+                    btnClosePolicyHeader.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        closePolicyModal();
+                    });
+                }
+            } catch (e) {}
+
+            // policy tab switcher buttons direct clicks
+            try {
+                const tabs = ['privacidade', 'termos', 'reembolso'];
+                tabs.forEach(t => {
+                    const btn = document.getElementById(`tab-${t}`);
+                    if (btn) {
+                        btn.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            switchPolicyTab(t);
+                        });
+                    }
+                });
+            } catch (e) {}
+
+            // Smooth close mobile menu on anchor clicks
+            try {
+                document.querySelectorAll('.navigation-link').forEach(link => {
+                    link.addEventListener('click', () => {
+                        closeMobileMenu();
+                    });
+                });
+            } catch (e) {}
+
+            // Render Lucide Icons
+            safeCreateIcons();
+        });
+
+        // Fallback for late-loading CDN scripts
+        window.addEventListener('load', () => {
+            safeCreateIcons();
+        });
+    </script>
+</body>
+</html>
